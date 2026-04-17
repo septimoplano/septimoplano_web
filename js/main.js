@@ -146,60 +146,60 @@ gsap.to('.hero-flare-2', {
 // Section labels + headlines
 gsap.utils.toArray('.section-label, .section-headline, .section-desc').forEach(el => {
   gsap.from(el, {
-    y: 30, opacity: 0, duration: 0.8, ease: 'power3.out',
+    y: 30, duration: 0.8, ease: 'power3.out',
     scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
   });
 });
 
 // Services cards
-gsap.from('.service-card', {
-  y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+gsap.from('.service-card, .sc-anim', {
+  y: 30, duration: 0.6, stagger: 0.08, ease: 'power3.out',
   scrollTrigger: { trigger: '.services-grid', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // Nosotros
 gsap.from('.nosotros-text > *', {
-  y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+  y: 30, duration: 0.7, stagger: 0.12, ease: 'power2.out',
   scrollTrigger: { trigger: '.nosotros-text', start: 'top 85%', toggleActions: 'play none none none' }
 });
 gsap.from('.visual-card', {
-  x: 50, opacity: 0, duration: 0.9, ease: 'power3.out',
+  x: 50, duration: 0.9, ease: 'power3.out',
   scrollTrigger: { trigger: '.visual-card', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // Statement
 gsap.from('.statement-big', {
-  x: -50, opacity: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out',
+  x: -50, duration: 0.8, stagger: 0.2, ease: 'power3.out',
   scrollTrigger: { trigger: '.statement-section', start: 'top 80%', toggleActions: 'play none none none' }
 });
 
 // Branding cards
 gsap.from('.branding-card', {
-  y: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'power2.out',
+  y: 40, duration: 0.6, stagger: 0.12, ease: 'power2.out',
   scrollTrigger: { trigger: '.branding-cards', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // Benefit items
 gsap.from('.benefit-item', {
-  scale: 0.9, opacity: 0, duration: 0.5, stagger: 0.07, ease: 'back.out(1.5)',
+  scale: 0.9, duration: 0.5, stagger: 0.07, ease: 'back.out(1.5)',
   scrollTrigger: { trigger: '.benefits-grid', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
 // Branding stats
 gsap.from('.branding-stats', {
-  y: 30, opacity: 0, duration: 0.8, ease: 'power2.out',
+  y: 30, duration: 0.8, ease: 'power2.out',
   scrollTrigger: { trigger: '.branding-stats', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // Portfolio
 gsap.from('.trabajo-card', {
-  y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+  y: 50, duration: 0.7, stagger: 0.1, ease: 'power3.out',
   scrollTrigger: { trigger: '.trabajo-grid', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // CTA
 gsap.from('.cta-headline, .cta-desc, .btn-cta-main', {
-  y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+  y: 40, duration: 0.8, stagger: 0.15, ease: 'power3.out',
   scrollTrigger: { trigger: '.cta-section', start: 'top 75%', toggleActions: 'play none none none' }
 });
 
