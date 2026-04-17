@@ -11,46 +11,14 @@
     <div class="loader-bar"><div class="loader-bar-fill"></div></div>
   `;
   document.body.prepend(loader);
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      loader.classList.add('done');
-      setTimeout(() => loader.remove(), 600);
-    }, 1500);
-  });
+  setTimeout(() => {
+    loader.classList.add('done');
+    setTimeout(() => loader.remove(), 600);
+  }, 1200);
 })();
 
 /* ---------- GSAP + ScrollTrigger ---------- */
 gsap.registerPlugin(ScrollTrigger);
-
-/* ---------- CUSTOM CURSOR ---------- */
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursor-follower');
-let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
-
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.05 });
-});
-
-function animateFollower() {
-  followerX += (mouseX - followerX) * 0.12;
-  followerY += (mouseY - followerY) * 0.12;
-  gsap.set(follower, { x: followerX, y: followerY });
-  requestAnimationFrame(animateFollower);
-}
-animateFollower();
-
-document.querySelectorAll('a, button, [data-hover]').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.classList.add('is-hovered');
-    follower.classList.add('is-hovered');
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('is-hovered');
-    follower.classList.remove('is-hovered');
-  });
-});
 
 /* ---------- NAVBAR SCROLL ---------- */
 const navbar = document.getElementById('navbar');
@@ -75,6 +43,7 @@ navLinks.querySelectorAll('a').forEach(a => {
 /* ---------- HERO CANVAS (Particle Field) ---------- */
 (function () {
   const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles = [], mouse = { x: -999, y: -999 };
   const COLORS = ['rgba(124,58,237,', 'rgba(147,51,234,', 'rgba(167,139,250,', 'rgba(37,99,235,'];
@@ -94,7 +63,6 @@ navLinks.querySelectorAll('a').forEach(a => {
       this.speedX = (Math.random() - 0.5) * 0.2;
       this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
       this.alpha = Math.random() * 0.6 + 0.1;
-      this.life = 1;
     }
     update() {
       const dx = this.x - mouse.x;
@@ -158,221 +126,134 @@ navLinks.querySelectorAll('a').forEach(a => {
   loop();
 })();
 
-/* ---------- SCROLL REVEAL ---------- */
-function observeReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => entry.target.classList.add('is-visible'), parseInt(delay));
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal-up, .reveal-right').forEach(el => observer.observe(el));
-}
-observeReveal();
-
 /* ---------- GSAP SCROLL ANIMATIONS ---------- */
+
 // Hero parallax
 gsap.to('.hero-content', {
-  yPercent: 30,
+  yPercent: 25,
   ease: 'none',
-  scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true
-  }
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
 });
-
 gsap.to('.hero-flare-1', {
-  yPercent: 40,
-  ease: 'none',
+  yPercent: 40, ease: 'none',
   scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
 });
 gsap.to('.hero-flare-2', {
-  yPercent: 20,
-  ease: 'none',
+  yPercent: 20, ease: 'none',
   scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
 });
 
-// Services cards stagger
+// Section labels + headlines
+gsap.utils.toArray('.section-label, .section-headline, .section-desc').forEach(el => {
+  gsap.from(el, {
+    y: 30, opacity: 0, duration: 0.8, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
+  });
+});
+
+// Services cards
 gsap.from('.service-card', {
-  scrollTrigger: {
-    trigger: '.services-grid',
-    start: 'top 80%',
-    toggleActions: 'play none none none'
-  },
-  y: 60,
-  opacity: 0,
-  duration: 0.8,
-  stagger: 0.1,
-  ease: 'power3.out'
+  y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.services-grid', start: 'top 85%', toggleActions: 'play none none none' }
+});
+
+// Nosotros
+gsap.from('.nosotros-text > *', {
+  y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+  scrollTrigger: { trigger: '.nosotros-text', start: 'top 85%', toggleActions: 'play none none none' }
+});
+gsap.from('.visual-card', {
+  x: 50, opacity: 0, duration: 0.9, ease: 'power3.out',
+  scrollTrigger: { trigger: '.visual-card', start: 'top 85%', toggleActions: 'play none none none' }
+});
+
+// Statement
+gsap.from('.statement-big', {
+  x: -50, opacity: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.statement-section', start: 'top 80%', toggleActions: 'play none none none' }
 });
 
 // Branding cards
 gsap.from('.branding-card', {
-  scrollTrigger: {
-    trigger: '.branding-cards',
-    start: 'top 80%',
-    toggleActions: 'play none none none'
-  },
-  x: -40,
-  opacity: 0,
-  duration: 0.7,
-  stagger: 0.15,
-  ease: 'power2.out'
-});
-
-// Statement section text slide
-gsap.from('.statement-big', {
-  scrollTrigger: {
-    trigger: '.statement-section',
-    start: 'top 80%',
-    toggleActions: 'play none none none'
-  },
-  x: -60,
-  opacity: 0,
-  duration: 0.8,
-  stagger: 0.2,
-  ease: 'power3.out'
+  y: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'power2.out',
+  scrollTrigger: { trigger: '.branding-cards', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // Benefit items
 gsap.from('.benefit-item', {
-  scrollTrigger: {
-    trigger: '.benefits-grid',
-    start: 'top 85%',
-    toggleActions: 'play none none none'
-  },
-  scale: 0.9,
-  opacity: 0,
-  duration: 0.5,
-  stagger: 0.08,
-  ease: 'back.out(1.5)'
+  scale: 0.9, opacity: 0, duration: 0.5, stagger: 0.07, ease: 'back.out(1.5)',
+  scrollTrigger: { trigger: '.benefits-grid', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
-// Trabajo cards
+// Branding stats
+gsap.from('.branding-stats', {
+  y: 30, opacity: 0, duration: 0.8, ease: 'power2.out',
+  scrollTrigger: { trigger: '.branding-stats', start: 'top 85%', toggleActions: 'play none none none' }
+});
+
+// Portfolio
 gsap.from('.trabajo-card', {
-  scrollTrigger: {
-    trigger: '.trabajo-grid',
-    start: 'top 85%',
-    toggleActions: 'play none none none'
-  },
-  y: 50,
-  opacity: 0,
-  duration: 0.8,
-  stagger: 0.12,
-  ease: 'power3.out'
+  y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.trabajo-grid', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
-// CTA headline word by word
-gsap.from('.cta-headline', {
-  scrollTrigger: {
-    trigger: '.cta-section',
-    start: 'top 70%',
-    toggleActions: 'play none none none'
-  },
-  y: 40,
-  opacity: 0,
-  duration: 0.9,
-  ease: 'power3.out'
+// CTA
+gsap.from('.cta-headline, .cta-desc, .btn-cta-main', {
+  y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+  scrollTrigger: { trigger: '.cta-section', start: 'top 75%', toggleActions: 'play none none none' }
 });
 
 /* ---------- COUNTER ANIMATION ---------- */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const duration = 1500;
-  const start = performance.now();
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    el.textContent = Math.round(progress * target);
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = target;
-  }
-  requestAnimationFrame(update);
-}
-
 const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target);
+    const start = performance.now();
+    const duration = 1500;
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(progress * target);
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target;
     }
+    requestAnimationFrame(update);
+    counterObserver.unobserve(el);
   });
 }, { threshold: 0.5 });
-
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-/* ---------- MARQUEE SPEED ON HOVER ---------- */
+/* ---------- MARQUEE PAUSE ON HOVER ---------- */
 const marqueeTrack = document.querySelector('.marquee-track');
 if (marqueeTrack) {
-  marqueeTrack.addEventListener('mouseenter', () => {
-    marqueeTrack.style.animationPlayState = 'paused';
-  });
-  marqueeTrack.addEventListener('mouseleave', () => {
-    marqueeTrack.style.animationPlayState = 'running';
-  });
+  marqueeTrack.addEventListener('mouseenter', () => marqueeTrack.style.animationPlayState = 'paused');
+  marqueeTrack.addEventListener('mouseleave', () => marqueeTrack.style.animationPlayState = 'running');
 }
 
-/* ---------- SMOOTH SECTION TRANSITIONS ---------- */
-gsap.utils.toArray('.section').forEach(section => {
-  gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: 'top 90%',
-      toggleActions: 'play none none none'
-    },
-    opacity: 0,
-    y: 20,
-    duration: 0.6,
-    ease: 'power2.out'
-  });
-});
-
-/* ---------- HERO TEXT GLITCH EFFECT ---------- */
-(function () {
-  const lines = document.querySelectorAll('.hero-line');
-  lines.forEach(line => {
-    line.addEventListener('mouseenter', () => {
-      line.style.animation = 'none';
-      line.offsetHeight;
-      line.classList.add('glitch');
-      setTimeout(() => line.classList.remove('glitch'), 400);
-    });
-  });
-})();
-
-/* ---------- WAVEFORM SYNC ANIMATION ---------- */
-const bars = document.querySelectorAll('.wf-bar');
-bars.forEach((bar, i) => {
+/* ---------- WAVEFORM ANIMATION ---------- */
+document.querySelectorAll('.wf-bar').forEach((bar, i) => {
   bar.style.animationDelay = `${i * 0.1}s`;
   bar.style.animationDuration = `${0.8 + Math.random() * 0.8}s`;
 });
 
 /* ---------- NAV ACTIVE LINK ---------- */
-const sections = document.querySelectorAll('section[id]');
-const navLinks2 = document.querySelectorAll('.nav-link');
-
+const sectionEls = document.querySelectorAll('section[id]');
+const navLinkEls = document.querySelectorAll('.nav-link');
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      navLinks2.forEach(link => link.classList.remove('active'));
-      const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-      if (activeLink) activeLink.classList.add('active');
+      navLinkEls.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (a) a.classList.add('active');
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
+sectionEls.forEach(s => sectionObserver.observe(s));
 
-sections.forEach(s => sectionObserver.observe(s));
-
-/* ---------- ACCESSIBILITY: reduce motion ---------- */
+/* ---------- REDUCE MOTION ---------- */
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('.marquee-track').forEach(el => el.style.animation = 'none');
   gsap.globalTimeline.clear();
+  if (marqueeTrack) marqueeTrack.style.animation = 'none';
 }
 
 console.log('%c🎵 Séptimo Plano Studio', 'font-size:20px;font-weight:bold;color:#8B5CF6');
