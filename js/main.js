@@ -7,7 +7,7 @@
   const loader = document.createElement('div');
   loader.className = 'page-loader';
   loader.innerHTML = `
-    <div class="loader-logo">SP</div>
+    <img src="assets/logo.png" alt="Séptimo Plano Studio" class="loader-logo-img" />
     <div class="loader-bar"><div class="loader-bar-fill"></div></div>
   `;
   document.body.prepend(loader);
