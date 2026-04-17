@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Séptimo Plano Studio — De artistas para artistas</title>
+  <meta name="description" content="Estudio creativo multidisciplinario en Concepción. Producción musical, diseño gráfico, branding para artistas, marketing digital y formación." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Archivo+Black&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <text x="10" y="52" font-family="Archivo Black, sans-serif" font-size="38" fill="white" letter-spacing="-1">SÉPTIMO</text>
+          <text x="10" y="85" font-family="Archivo Black, sans-serif" font-size="38" fill="white" letter-spacing="-1">PLANO</text>
+          <text x="115" y="98" font-family="Archivo, sans-serif" font-size="11" fill="white" letter-spacing="5">STUDIO</text>
+          <circle cx="195" cy="68" r="6" fill="none" stroke="white" stroke-width="1.5"/>
+          <path d="M192 65 L195 62 L198 65" stroke="white" stroke-width="1.5" fill="none"/>
+        </svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#branding" class="nav-link">Branding</a>
+        <a href="#trabajo" class="nav-link">Trabajo</a>
+        <a href="#contacto" class="nav-cta" id="nav-whatsapp">Cotiza aquí →</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-flare hero-flare-1"></div>
+    <div class="hero-flare hero-flare-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Studio Creativo · Concepción</span>
+      </div>
+      <h1 class="hero-headline">
+        <span class="hero-line" data-text="DE ARTISTAS">DE ARTISTAS</span>
+        <span class="hero-line hero-line-accent" data-text="PARA ARTISTAS.">PARA ARTISTAS.</span>
+      </h1>
+      <p class="hero-sub">Producción musical · Diseño gráfico · Branding · Marketing · Formación</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/56934103995?text=Hola!%20Quiero%20cotizar%20un%20proyecto" class="btn-primary" target="_blank" rel="noopener">
+          <span>Escríbenos</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="#servicios" class="btn-ghost">Ver servicios ↓</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>PRODUCCIÓN MUSICAL</span><span class="marquee-dot">✦</span>
+      <span>DISEÑO GRÁFICO</span><span class="marquee-dot">✦</span>
+      <span>BRANDING PARA ARTISTAS</span><span class="marquee-dot">✦</span>
+      <span>MARKETING DIGITAL</span><span class="marquee-dot">✦</span>
+      <span>FORMACIÓN ARTÍSTICA</span><span class="marquee-dot">✦</span>
+      <span>PRODUCCIÓN MUSICAL</span><span class="marquee-dot">✦</span>
+      <span>DISEÑO GRÁFICO</span><span class="marquee-dot">✦</span>
+      <span>BRANDING PARA ARTISTAS</span><span class="marquee-dot">✦</span>
+      <span>MARKETING DIGITAL</span><span class="marquee-dot">✦</span>
+      <span>FORMACIÓN ARTÍSTICA</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ============ NOSOTROS ============ -->
+  <section class="section nosotros" id="nosotros">
+    <div class="container">
+      <div class="nosotros-grid">
+        <div class="nosotros-text">
+          <div class="section-label reveal-up">Fundamentos de la marca</div>
+          <h2 class="section-headline reveal-up">
+            Somos <span class="text-gradient">Séptimo Plano.</span>
+          </h2>
+          <p class="nosotros-desc reveal-up">
+            Estudio creativo <strong>multidisciplinario e integral</strong> en la ciudad de Concepción, orientado a la producción musical, diseño gráfico, marketing digital y formación artística, con el principal objetivo de <strong>impulsar el desarrollo de la escena local,</strong> disminuir la centralización de la industria y brindar herramientas profesionales a <strong>artistas emergentes.</strong>
+          </p>
+          <div class="nosotros-values reveal-up">
+            <div class="value-pill">Crear</div>
+            <div class="value-pill">Enseñar</div>
+            <div class="value-pill">Difundir</div>
+          </div>
+        </div>
+        <div class="nosotros-visual">
+          <div class="visual-card reveal-right">
+            <div class="visual-card-inner">
+              <div class="archetype-label">Arquetipo · Nuestra personalidad</div>
+              <div class="archetype-words">
+                <span class="arch-word">SABIO</span>
+                <span class="arch-sep">+</span>
+                <span class="arch-word">MAGO</span>
+                <span class="arch-sep">+</span>
+                <span class="arch-word">CREADOR</span>
+              </div>
+              <div class="visual-orb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATEMENT ============ -->
+  <section class="statement-section">
+    <div class="container">
+      <div class="statement-text reveal-up">
+        <p class="statement-big">Tu música es lo que haces.</p>
+        <p class="statement-big statement-accent">Tu branding es quién eres.</p>
+      </div>
+      <p class="statement-sub reveal-up">Sin identidad visual clara, eres invisible en un mercado saturado.</p>
+    </div>
+  </section>
+
+  <!-- ============ SERVICIOS ============ -->
+  <section class="section servicios" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">¿Qué ofrecemos?</div>
+        <h2 class="section-headline reveal-up">Nuestros <span class="text-gradient">Servicios</span></h2>
+        <p class="section-desc reveal-up">Todo lo que necesitas para construir tu carrera artística desde la región.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal-up" data-delay="0">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/><path d="M14 20 Q20 10 26 20 Q20 30 14 20Z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+          </div>
+          <h3 class="service-title">Producción Musical</h3>
+          <p class="service-desc">Desde el beat hasta el master. Hacemos que tu música suene profesional.</p>
+          <ul class="service-list">
+            <li>Beatmaking</li>
+            <li>Mezcla</li>
+            <li>Masterización</li>
+          </ul>
+          <div class="service-badge">Disponible</div>
+        </div>
+
+        <div class="service-card reveal-up" data-delay="100">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="8" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M20 14V12M20 28V26M14 20H12M28 20H26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="service-title">Diseño Gráfico</h3>
+          <p class="service-desc">Visuales que comunican antes de que suenes. Identidad que perdura.</p>
+          <ul class="service-list">
+            <li>Contenido RR.SS</li>
+            <li>Carátulas & Arte conceptual</li>
+            <li>Diseño de Merch</li>
+          </ul>
+          <div class="service-badge">Disponible</div>
+        </div>
+
+        <div class="service-card reveal-up service-featured" data-delay="200">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M20 6L8 14V26L20 34L32 26V14L20 6Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 6V34M8 14L32 14M8 26L32 26" stroke="currentColor" stroke-width="0.75" opacity="0.4"/></svg>
+          </div>
+          <h3 class="service-title">Branding para Artistas</h3>
+          <p class="service-desc">Construimos la identidad que hace que la gente te recuerde mucho después de escucharte.</p>
+          <ul class="service-list">
+            <li>Identidad de Marca</li>
+            <li>Identidad Visual Completa</li>
+            <li>Dirección Creativa</li>
+          </ul>
+          <div class="service-badge service-badge-featured">★ Popular</div>
+        </div>
+
+        <div class="service-card reveal-up" data-delay="300">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M6 30 L14 18 L20 24 L28 12 L34 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="20" r="3" fill="currentColor"/></svg>
+          </div>
+          <h3 class="service-title">Marketing Digital</h3>
+          <p class="service-desc">Llevamos tu música al algoritmo. Campañas que convierten oyentes en fans.</p>
+          <ul class="service-list">
+            <li>Campañas de Lanzamiento</li>
+            <li>Campañas RR.SS</li>
+            <li>Meta Ads</li>
+          </ul>
+          <div class="service-badge">Disponible</div>
+        </div>
+
+        <div class="service-card reveal-up service-soon" data-delay="400">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M20 8V20L28 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="22" r="14" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3 class="service-title">Formación Artística</h3>
+          <p class="service-desc">No solo te posicionamos. Queremos que entiendas la industria.</p>
+          <ul class="service-list">
+            <li>Masterclasses</li>
+            <li>Cursos</li>
+            <li>Talleres</li>
+          </ul>
+          <div class="service-badge service-badge-soon">Próximamente</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRANDING SECTION ============ -->
+  <section class="section branding-section" id="branding">
+    <div class="branding-bg"></div>
+    <div class="container">
+      <div class="branding-header reveal-up">
+        <div class="section-label">¿Por qué importa?</div>
+        <h2 class="section-headline">Branding no es<br><span class="text-gradient">solo un logo.</span></h2>
+      </div>
+      <div class="branding-cards">
+        <div class="branding-card reveal-up" data-delay="0">
+          <div class="branding-card-num">01</div>
+          <p class="branding-card-text">Es cómo te perciben.</p>
+        </div>
+        <div class="branding-card reveal-up" data-delay="100">
+          <div class="branding-card-num">02</div>
+          <p class="branding-card-text">Es tu identidad visual completa.</p>
+        </div>
+        <div class="branding-card reveal-up" data-delay="200">
+          <div class="branding-card-num">03</div>
+          <p class="branding-card-text">Es la promesa que haces antes de que alguien escuche tu música.</p>
+        </div>
+      </div>
+      <div class="branding-stats reveal-up">
+        <div class="stat">
+          <div class="stat-num counter" data-target="3">0</div>
+          <div class="stat-label">segundos para decidir si vale la pena</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-text">Tu portada, tu perfil, tu estética:</div>
+          <div class="stat-sub">todo comunica antes de que suenes.</div>
+        </div>
+      </div>
+      <div class="branding-benefits reveal-up">
+        <h3 class="benefits-title">Branding profesional:</h3>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <span class="benefit-arrow">→</span>
+            <span>Genera confianza</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-arrow">→</span>
+            <span>Te hace memorable</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-arrow">→</span>
+            <span>Te diferencia de la competencia</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-arrow">→</span>
+            <span>Convierte oyentes casuales en fans</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRABAJO (PORTFOLIO) ============ -->
+  <section class="section trabajo" id="trabajo">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">Un poco de lo que hacemos</div>
+        <h2 class="section-headline reveal-up">Si suena bien, <span class="text-gradient">tiene que verse bien.</span></h2>
+      </div>
+      <div class="trabajo-grid">
+        <div class="trabajo-card reveal-up" data-delay="0">
+          <div class="trabajo-card-inner tc-redes">
+            <div class="tc-label">Redes Sociales</div>
+            <div class="tc-mockup">
+              <div class="mock-post">
+                <div class="mock-header"></div>
+                <div class="mock-content">
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                </div>
+              </div>
+              <div class="mock-post mock-post-2">
+                <div class="mock-header"></div>
+                <div class="mock-content">
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-card reveal-up" data-delay="100">
+          <div class="trabajo-card-inner tc-branding">
+            <div class="tc-label">Branding & Identidad</div>
+            <div class="tc-logo-display">
+              <div class="tc-logo-text">SÉPTIMO<br>PLANO</div>
+              <div class="tc-logo-sub">STUDIO</div>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-card trabajo-card-wide reveal-up" data-delay="200">
+          <div class="trabajo-card-inner tc-merch">
+            <div class="tc-label">Diseño de Merch</div>
+            <div class="tc-merch-items">
+              <div class="merch-item merch-hoodie"></div>
+              <div class="merch-item merch-card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-card reveal-up" data-delay="300">
+          <div class="trabajo-card-inner tc-web">
+            <div class="tc-label">Sitios Web</div>
+            <div class="tc-web-mock">
+              <div class="web-nav"></div>
+              <div class="web-hero"></div>
+              <div class="web-content">
+                <div class="web-line"></div>
+                <div class="web-line short"></div>
+                <div class="web-btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-card reveal-up" data-delay="400">
+          <div class="trabajo-card-inner tc-produccion">
+            <div class="tc-label">Producción Musical</div>
+            <div class="tc-waveform">
+              <div class="wf-bar" style="--h:40%"></div>
+              <div class="wf-bar" style="--h:70%"></div>
+              <div class="wf-bar" style="--h:50%"></div>
+              <div class="wf-bar" style="--h:90%"></div>
+              <div class="wf-bar" style="--h:60%"></div>
+              <div class="wf-bar" style="--h:80%"></div>
+              <div class="wf-bar" style="--h:45%"></div>
+              <div class="wf-bar" style="--h:75%"></div>
+              <div class="wf-bar" style="--h:55%"></div>
+              <div class="wf-bar" style="--h:85%"></div>
+              <div class="wf-bar" style="--h:40%"></div>
+              <div class="wf-bar" style="--h:65%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA SECTION ============ -->
+  <section class="cta-section" id="contacto">
+    <div class="cta-bg-anim"></div>
+    <div class="cta-flare"></div>
+    <div class="container">
+      <div class="cta-content reveal-up">
+        <div class="section-label">¿Listo para el siguiente nivel?</div>
+        <h2 class="cta-headline">
+          Tu sonido merece<br>
+          <span class="text-gradient">una identidad<br>a la altura.</span>
+        </h2>
+        <p class="cta-desc">¿Tu branding está a la altura de tu música?<br>Si la respuesta es no, <strong>es hora de cambiarlo.</strong></p>
+        <a href="https://wa.me/56934103995?text=Hola!%20Quiero%20cotizar%20un%20proyecto%20con%20Séptimo%20Plano" class="btn-cta-main" target="_blank" rel="noopener" id="main-whatsapp">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+        <p class="cta-footnote">Respuesta inmediata · Presupuesto sin compromiso</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">SÉPTIMO<br>PLANO<br><span>STUDIO</span></div>
+          <p class="footer-tagline">De artistas para artistas.</p>
+          <p class="footer-location">📍 Concepción, Chile</p>
+        </div>
+        <div class="footer-links">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Producción Musical</a></li>
+            <li><a href="#servicios">Diseño Gráfico</a></li>
+            <li><a href="#servicios">Branding</a></li>
+            <li><a href="#servicios">Marketing Digital</a></li>
+            <li><a href="#servicios">Formación</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Estudio</h4>
+          <ul>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#trabajo">Portfolio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Hablemos</h4>
+          <a href="https://wa.me/56934103995" class="footer-wa" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            +56 9 3410 3995
+          </a>
+          <p class="footer-email">studioseptimoplano@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Séptimo Plano Studio · Todos los derechos reservados</p>
+      <p class="footer-made">Hecho en Concepción con 🎵</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/56934103995?text=Hola!%20Quiero%20cotizar%20un%20proyecto%20con%20Séptimo%20Plano" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="wa-pulse"></div>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
